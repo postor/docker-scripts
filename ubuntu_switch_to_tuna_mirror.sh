@@ -1,16 +1,9 @@
 #!/bin/bash
 
-# Supported Ubuntu versions: 20.04, 22.04, 24.04
-SUPPORTED_VERSIONS=("20.04" "22.04" "24.04")
+set -ex
 
 # Get Ubuntu version
 UBUNTU_VERSION=$(lsb_release -rs)
-
-# Check if the version is supported
-if [[ ! " ${SUPPORTED_VERSIONS[@]} " =~ " ${UBUNTU_VERSION} " ]]; then
-    echo "This script only supports Ubuntu versions: ${SUPPORTED_VERSIONS[@]}"
-    exit 1
-fi
 
 # Backup the original sources.list
 echo "Backing up the original /etc/apt/sources.list to /etc/apt/sources.list.bak"
